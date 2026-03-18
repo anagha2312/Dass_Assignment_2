@@ -1,4 +1,6 @@
+
 """Module defining Property and Railroad classes for the Money-Poly game."""
+# pylint: disable=too-many-instance-attributes, too-many-arguments, too-many-positional-arguments
 class Property:
     """Represents a single purchasable property tile on the MoneyPoly board."""
 
