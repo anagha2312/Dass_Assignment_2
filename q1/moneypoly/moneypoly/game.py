@@ -16,7 +16,7 @@ from dice import Dice
 from cards import CardDeck, CHANCE_CARDS, COMMUNITY_CHEST_CARDS
 import ui
 
-
+# pylint: disable=too-many-instance-attributes, too-many-branches
 class Game:
     """Manages the full state and flow of a MoneyPoly game session."""
 
