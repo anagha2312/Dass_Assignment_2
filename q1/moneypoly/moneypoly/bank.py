@@ -1,4 +1,7 @@
 
+"""
+This module manages the Bank's funds and loan operations for the Money-Poly game.
+"""
 from config import BANK_STARTING_FUNDS
 
 
