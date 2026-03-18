@@ -378,7 +378,7 @@ class Game:
 
         winner = self.find_winner()
         if winner:
-            ui.print_banner(f"GAME OVER")
+            ui.print_banner("GAME OVER")
             print("\n  {winner.name} wins with a net worth of ${winner.net_worth()}!\n")
         else:
             print("\n  The game ended with no players remaining.")
@@ -466,4 +466,3 @@ class Game:
             f"  Cash to receive from {partner.name}: $", default=0
         )
         self.trade(player, partner, chosen_prop, cash)
-        
