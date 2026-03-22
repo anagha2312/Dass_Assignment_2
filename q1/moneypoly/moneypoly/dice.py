@@ -3,7 +3,7 @@ This module handles dice rolling logic, including doubles detection
 and streak tracking for the Money-Poly game.
 """
 import random
-from config import DICE_SIDES
+from .config import DICE_SIDES
 
 class Dice:
     """Simulates a pair of six-sided dice with consecutive-doubles tracking."""

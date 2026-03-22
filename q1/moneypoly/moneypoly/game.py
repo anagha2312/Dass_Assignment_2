@@ -1,7 +1,7 @@
 """Module containing the core game loop and logic for Money-Poly."""
 
 
-from config import (
+from .config import (
     JAIL_FINE,
     AUCTION_MIN_INCREMENT,
     INCOME_TAX_AMOUNT,
@@ -9,12 +9,12 @@ from config import (
     MAX_TURNS,
     GO_SALARY,
 )
-from player import Player
-from board import Board
-from bank import Bank
-from dice import Dice
-from cards import CardDeck, CHANCE_CARDS, COMMUNITY_CHEST_CARDS
-import ui
+from .player import Player
+from .board import Board
+from .bank import Bank
+from .dice import Dice
+from .cards import CardDeck, CHANCE_CARDS, COMMUNITY_CHEST_CARDS
+from . import ui
 
 # pylint: disable=too-many-instance-attributes, too-many-branches
 class Game:
@@ -159,7 +159,7 @@ class Game:
 
         rent = prop.get_rent()
         player.deduct_money(rent)
-        prop.owner.add_money(rent) 
+        prop.owner.add_money(rent)
         print(f"  {player.name} paid ${rent} rent on {prop.name} to {prop.owner.name}.")
 
     def mortgage_property(self, player, prop):
@@ -207,7 +207,7 @@ class Game:
             return False
 
         buyer.deduct_money(cash_amount)
-        seller.add_money(cash_amount)  
+        seller.add_money(cash_amount)
         prop.owner = buyer
         seller.remove_property(prop)
         buyer.add_property(prop)

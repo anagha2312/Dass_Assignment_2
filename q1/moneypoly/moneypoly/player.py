@@ -1,5 +1,5 @@
 """This module defines the Player class, managing balance, position, and properties."""
-from config import STARTING_BALANCE, BOARD_SIZE, GO_SALARY, JAIL_POSITION
+from .config import STARTING_BALANCE, BOARD_SIZE, GO_SALARY, JAIL_POSITION
 
 # pylint: disable=too-many-instance-attributes
 class Player:

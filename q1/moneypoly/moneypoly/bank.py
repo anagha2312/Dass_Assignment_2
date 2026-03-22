@@ -2,12 +2,12 @@
 """
 This module manages the Bank's funds and loan operations for the Money-Poly game.
 """
-from config import BANK_STARTING_FUNDS
+from .config import BANK_STARTING_FUNDS
 
 
 class Bank:
     """
-    The Bank class handles cash reserves, paying out players, 
+    The Bank class handles cash reserves, paying out players,
     collecting fines, and issuing emergency loans.
     """
     def __init__(self):
@@ -49,7 +49,7 @@ class Bank:
         """
         if amount <= 0:
             return
-        self._funds -= amount   
+        self._funds -= amount
         player.add_money(amount)
         self._loans_issued.append((player.name, amount))
         print(f"  Bank issued a ${amount} emergency loan to {player.name}.")
