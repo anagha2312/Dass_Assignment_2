@@ -1,42 +1,10 @@
-"""
-QuickCart API Black-Box Test Suite  (v2 - corrected field names)
-=================================================================
-Run with:  pytest test_quickcart.py -v
-Requires:  pip install pytest requests
-
-Set ROLL_NUMBER and USER_ID before running.
-
-CONFIRMED ACTUAL FIELD NAMES (discovered from live API):
-  GET /wallet        -> {"wallet_balance": <float>}
-  GET /loyalty       -> {"loyalty_points": <int>}
-  GET /products      -> no "stock" field at list level; use GET /products/{id}
-  GET /orders/{id}/invoice -> {"subtotal", "gst_amount", "total_amount", "order_id"}
-  GET /admin/coupons -> coupon field is "coupon_code" (not "code")
-  POST /addresses    -> returns 200 (not 201) on success
-  GET /products      -> sort param values may be "asc"/"desc" or "price_asc"/"price_desc"
-
-BUGS CONFIRMED FROM TEST RUN (report these to your teacher):
-  BUG-01: GET /profile with non-existent X-User-ID returns 404 instead of 400
-  BUG-02: PUT /profile accepts phone='ABCDEFGHIJ' (letters) and returns 200 — should be 400
-  BUG-03: POST /addresses returns 200 instead of 201 on success
-  BUG-04: Multiple addresses can all have is_default=True simultaneously (uniqueness not enforced)
-  BUG-05: POST /cart/add accepts quantity=0 and returns 200 — should be 400
-  BUG-06: POST /cart/add accepts quantity=-1 and returns 200 — should be 400
-  BUG-07: Cart subtotal is wrong: item subtotal = -16 for price=120, qty=2 (severe arithmetic bug)
-  BUG-08: Cart total calculation is broken (returns 120 when sum of subtotals is -6)
-  BUG-09: GST test - order response does not contain "total" or "order_total" field
-  BUG-10: POST /products/{id}/reviews accepts rating=0 (below minimum) — should be 400
-  BUG-11: POST /products/{id}/reviews accepts rating=6 (above maximum) — should be 400
-  BUG-12: Invoice uses "gst_amount" and "total_amount" instead of "gst" and "total"
-  BUG-13: Invoice total_amount (142.3) != subtotal (120) * 1.05 (126) — wrong GST calculation
-"""
 
 import pytest
 import requests
 
 # ─── Configuration ─────────────────────────────────────────────────────────────
 BASE_URL    = "http://localhost:8080"
-ROLL_NUMBER = "2024101007"   # <-- replace with YOUR roll number
+ROLL_NUMBER = "2024101007"  
 USER_ID     = 1              # <-- a valid seeded user ID
 
 def base_headers(user_id=USER_ID):
