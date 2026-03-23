@@ -128,4 +128,10 @@ pytest test_quickcart.py -v
 - `q3/QuickCart_BlackBox_Test_Report.pdf`
 
 ---
+Github repo link - https://github.com/anagha2312/Dass_Assignment_2
+
+gdrive link- https://drive.google.com/file/d/1h3v89rnhygj2Ot8fTndhrasgrdWyBmtR/view?usp=sharing
+
+gdrive link again- https://drive.google.com/file/d/1h3v89rnhygj2Ot8fTndhrasgrdWyBmtR/view?usp=sharing
+
 
